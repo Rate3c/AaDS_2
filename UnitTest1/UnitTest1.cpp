@@ -11,12 +11,12 @@ namespace UnitTests
 	public:
 		TEST_METHOD(QuickSortTest)
 		{
-			const int test_size = 10;
+			const int test_size = 100;
 			int* test_array = new int[test_size];
 			int first = 0; int last = test_size - 1;
 			for (int i = 0; i < test_size; i++)
 			{
-				test_array[i] = 10 - i;
+				test_array[i] = 100 - i;
 			}
 			for (int i = 0; i < test_size - 1; i++) {
 				Assert::IsFalse(test_array[i] <= test_array[i + 1]);
@@ -29,11 +29,11 @@ namespace UnitTests
 		}
 		TEST_METHOD(InsertionSortTest)
 		{
-			const int test_size = 10;
+			const int test_size = 100;
 			int* test_array = new int[test_size];
 			for (int i = 0; i < test_size; i++)
 			{
-				test_array[i] = 10 - i;
+				test_array[i] = 100 - i;
 			}
 			for (int i = 0; i < test_size - 1; i++) {
 				Assert::IsFalse(test_array[i] <= test_array[i + 1]);
@@ -63,11 +63,11 @@ namespace UnitTests
 		}
 		TEST_METHOD(SortedArrayTest)
 		{
-			const int test_size = 10;
+			const int test_size = 100;
 			int* test_array = new int[test_size];
 			for (int i = 0; i < test_size; i++)
 			{
-				test_array[i] = 10 - i;
+				test_array[i] = 100 - i;
 			}
 			Assert::IsFalse(SortedArray(test_array, test_size));
 			BogoSort(test_array, test_size);
@@ -113,33 +113,28 @@ namespace UnitTests
 		}
 		TEST_METHOD(BinarySearchTest)
 		{
-			const int test_size = 10;
+			const int test_size = 100;
 			int* test_array = new int[test_size];
 			for (int i = 0; i < test_size; i++)
 			{
-				test_array[i] = 20 - i;
+				test_array[i] = 200 - i;
 			}
-			try {
-				BinarySearch(test_array, test_size, 3);
-			}
-			catch (const invalid_argument error) {
-				Assert::AreEqual("The array is not sorted in ascending order", error.what());
-			}
+
 			InsertionSort(test_array, test_size);
 			try {
-				BinarySearch(test_array, test_size, 3);
+				BinarySearch(test_array, test_size, 455);
 			}
 			catch (const invalid_argument error) {
-				Assert::AreEqual("There is not element in array", error.what());
+				Assert::AreEqual("There is not this element in array", error.what());
 			}
 
 			try {
 				BinarySearch(test_array, test_size, 25);
 			}
 			catch (const invalid_argument error) {
-				Assert::AreEqual("There is not element in array", error.what());
+				Assert::AreEqual("There is not this element in array", error.what());
 			}
-			Assert::IsTrue(BinarySearch(test_array, test_size, 17) == 6);
+			Assert::IsTrue(BinarySearch(test_array, test_size, 199) == 98);
 			delete[]test_array;
 		}
 
