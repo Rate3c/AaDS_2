@@ -4,11 +4,8 @@
 
 using namespace std;
 
-// declaration the constant
-const int size = 10;
-
 // check the correct array order for bogo sort
-int SortedArray(int* array, int size) {
+int SortedArray(int* array, size_t size) {
 	while (size-- > 0)
 		if (array[size - 1] > array[size])
 			return 0;
@@ -16,7 +13,7 @@ int SortedArray(int* array, int size) {
 }
 
 //1. Binary search the element in array
-int BinarySearch(int* array, int size, int searchElement) {
+int BinarySearch(int* array, size_t size, int searchElement) {
 	if (SortedArray(array, size) == 1) { // if array is sorted in ascending order
 		int left = 0;
 		int right = size - 1;
@@ -65,7 +62,7 @@ void QuickSort(int* array, int first, int last) {
 }
 
 //3. Insertion sort
-void InsertionSort(int array[], int size)
+void InsertionSort(int array[], size_t size)
 {
 	int i, j;
 	int key; //the number to be compared
@@ -87,19 +84,19 @@ void InsertionSort(int array[], int size)
 }
 
 // swap the array random elements for bogo sort
-void BogoShuffle(int* array, int size) {
+void BogoShuffle(int* array, size_t size) {
 	for (int i = 0; i < size; ++i)
 		swap(array[i], array[(rand() % size)]);
 }
 
 //5. Bogo sort
-void BogoSort(int* array, int size) {
+void BogoSort(int* array, size_t size) {
 	while (!SortedArray(array, size)) // while array is not sorted
 		BogoShuffle(array, size); // swap the array random elements
 }
 
 //6. Counting sort for char
-void CountingSort(char* array, int size) {
+void CountingSort(char* array, size_t size) {
 	char char_array[256] = { 0 };
 	for (int i = 0; i < size; ++i) {
 		++char_array[array[i]]; // calculate the count of each char

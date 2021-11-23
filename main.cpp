@@ -110,7 +110,7 @@ int main() {
 
 	delete[]BinarySearchTest_array;
 
-	cout << "\n\nCompare QuickSort and InsertionSort:\n\n";
+	cout << "\n\nComparing QuickSort and InsertionSort:\n\n";
 
 	//QuickSort example
 	for (int degree = 1; degree < 7; degree++) {
@@ -134,7 +134,7 @@ int main() {
 	cout << endl;
 
 	// InsertionSort example
-	for (int degree = 1; degree < 6; degree++) {
+	for (int degree = 1; degree < 5; degree++) {
 		int size = pow(10, degree);
 		int* array = new int[size];
 		int first = 0; int last = size - 1;
